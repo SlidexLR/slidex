@@ -1,146 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Slidex</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>@</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <!-- Discord Status Pill -->
-        <div id="discordStatus" class="status-container">
-            <div class="status-pill">
-                <img src="https://cdn.discordapp.com/avatars/1192801918272155709/4ad0c656b68e3b2090883c1fb27068c0.png?size=512" alt="profile picture" class="profile-picture">
-                <div class="status-circle"></div>
-                <div class="username">Slidex</div>
-            </div>
-            <div class="activity-info" style="display: none;">
-                <!-- Music or Game Info -->
-                <p class="activity-text"></p>
-                <img class="activity-image" style="display: none;" />
-            </div>
-        </div>
-        
-        <h1>Slidex</h1>
-        <p>Hi, I'm Slidex, check out my websites and more below with the buttons.</p>
-        
-        <button id="revealButton">Show Links</button>
-        <ul id="links" class="hidden">
-            <li><a href="https://zenathia.netlify.app">Zenath Website</a></li>
-            <li><a href="https://texttolink.netlify.app">Text to Link Website</a></li>
-        </ul>
-        
-        <button id="favoriteMusic">My Favorite Songs</button>
-        <ul id="music" class="hidden">
-            <li>Kendrick Lamar - good kid</li>
-            <li>Ken Carson - ss</li>
-            <li>Tyler, the Creator - IFHY</li>
-            <li>Tyler, the Creator - Answer</li>
-            <li>etc...</li>
-        </ul>
-        
-        <button id="mySocials">My Socials</button>
-        <ul id="socials" class="hidden">
-            <li><a href="https://steamcommunity.com/id/slidexo/" target="_blank">Steam</a></li>
-            <li><a href="https://www.instagram.com/slidexo/" target="_blank">Instagram</a></li>
-            <li><a href="https://open.spotify.com/user/31m5c6jpi42f23xqzjcwjioy7uvu" target="_blank">Spotify</a></li>
-            <li><a href="https://last.fm/user/slidexlr" target="_blank">last.fm</a></li>
-            <li><a href="https://discord.com/users/1192801918272155709" target="_blank">Discord</a></li>
-        </ul>
+
+
+  <div id="welcome-screen">
+    <button id="enter-button">hi..</button>
+  </div>
+
+ 
+  <div id="content" class="hidden">
+    <video autoplay loop id="background-video">
+      <source src="vid2.mp4" type="video/mp4">
+    </video>
+    <div id="bio">
+      <img id="discord-avatar" src="" alt="Discord Avatar" width="100" height="100">
+      <h1 id="discord-username"></h1>
+      <p id="discord-status"></p>
+      <p id="text">hi </p>
+      <p>links below</p>
+      <div id="links">
+        <a href="https://steamcommunity.com/id/slidexo/">
+          <img src="https://www.citypng.com/public/uploads/preview/steam-white-circle-icon-hd-png-701751694966021ie3kndkzkm.png" alt="Steam">
+        </a>
+        <a href="https://www.instagram.com/slidexo/">
+          <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/instagram-white-icon.png" alt="Instagram">
+        </a>
+        <a href="https://open.spotify.com/user/31m5c6jpi42f23xqzjcwjioy7uvu">
+          <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/spotify-white-icon.png" alt="Spotify">
+        </a>
+        <a href="https://www.last.fm/user/slidexlr">
+          <img src="https://www.iconsdb.com/icons/preview/white/lastfm-xxl.png" alt="Last.fm">
+        </a>
+      </div>
     </div>
+  </div>
 
-    <script>
-        // Discord user ID for Lanyard API
-        const userId = "1192801918272155709";
-
-        // Fetch Discord status from Lanyard API
-        async function fetchDiscordStatus() {
-            try {
-                const response = await fetch(`https://api.lanyard.rest/v1/users/${userId}`);
-                const data = await response.json();
-
-                if (data.success && data.data.discord_status) {
-                    const statusContainer = document.getElementById("discordStatus");
-                    const { discord_status, activities, spotify } = data.data;
-
-                    const statusCircle = document.querySelector("#discordStatus .status-circle");
-                    const username = document.querySelector("#discordStatus .username");
-                    const activityInfo = document.querySelector(".activity-info");
-                    const activityText = document.querySelector(".activity-text");
-                    const activityImage = document.querySelector(".activity-image");
-
-                    // Set the Discord status
-                    if (statusCircle && username) {
-                        statusCircle.style.backgroundColor = getStatusColor(discord_status);
-                        username.textContent = "Slidex";  // You can customize this dynamically later if needed
-                    }
-
-                    // Show game or Spotify activity
-                    if (spotify) {
-                        activityInfo.style.display = 'block';
-                        activityImage.src = spotify.album_art_url || ''; 
-                        activityImage.style.display = spotify.album_art_url ? 'block' : 'none'; 
-                        activityText.innerHTML = `
-                            <p>Listening to ${spotify.song} by ${spotify.artist}</p>
-                        `;
-                    } else if (activities && activities.length > 0) {
-                        const game = activities.find(activity => activity.type === 0);
-                        if (game) {
-                            activityInfo.style.display = 'block';
-                            activityImage.src = game.assets.large_image || '';
-                            activityImage.style.display = game.assets.large_image ? 'block' : 'none';
-                            activityText.innerHTML = `
-                                <p>Playing ${game.name}</p>
-                            `;
-                        } else {
-                            activityInfo.style.display = 'none'; 
-                        }
-                    } else {
-                        activityInfo.style.display = 'none';
-                    }
-                } else {
-                    console.error("Failed to fetch Discord status.");
-                }
-            } catch (error) {
-                console.error("Error fetching Discord status:", error);
-            }
-        }
-
-        function getStatusColor(status) {
-            switch (status) {
-                case 'online': return 'green';
-                case 'dnd': return 'red';
-                case 'idle': return 'yellow';
-                case 'offline': return 'gray';
-                default: return 'gray';
-            }
-        }
-
-        // Button functionality for revealing content
-        document.getElementById('revealButton').addEventListener('click', function() {
-            const links = document.getElementById('links');
-            links.classList.toggle('hidden');
-            links.classList.toggle('visible');
-            this.textContent = links.classList.contains('visible') ? 'Hide Links' : 'Show Links';
-        });
-
-        document.getElementById('favoriteMusic').addEventListener('click', function() {
-            const music = document.getElementById('music');
-            music.classList.toggle('hidden');
-            music.classList.toggle('visible');
-            this.textContent = music.classList.contains('visible') ? 'Hide My Favorite Songs' : 'Show My Favorite Songs';
-        });
-
-        document.getElementById('mySocials').addEventListener('click', function() {
-            const socials = document.getElementById('socials');
-            socials.classList.toggle('hidden');
-            socials.classList.toggle('visible');
-            this.textContent = socials.classList.contains('visible') ? 'Hide My Socials' : 'Show My Socials';
-        });
-
-        fetchDiscordStatus();
-    </script>
+  <script src="script.js"></script>
 </body>
 </html>

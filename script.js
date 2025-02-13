@@ -1,69 +1,104 @@
-// Discord user ID for Lanyard API
-const userId = "1192801918272155709";
+const DISCORD_ID = '1192801918272155709';
 
-// Function to fetch Discord status using Lanyard API
-async function fetchDiscordStatus() {
+async function fetchDiscordData() {
     try {
-        const response = await fetch(`https://api.lanyard.rest/v1/users/${userId}`);
-        const data = await response.json();
-
-        if (data.success && data.data.discord_status) {
-            const statusContainer = document.getElementById("discordStatus");
-            const { discord_status, activities, spotify } = data.data;
-
-            // Set the Discord status (Online, DND, etc.)
-            const statusCircle = document.querySelector("#discordStatus .status .status-circle");
-            const statusText = document.querySelector("#discordStatus .status .status-text");
-
-            // Check if statusCircle and statusText exist before modifying them
-            if (statusCircle && statusText) {
-                statusCircle.style.backgroundColor = getStatusColor(discord_status);
-                statusText.textContent = discord_status;
-            }
-
-            // Show game or Spotify activity
-            const activityInfo = document.querySelector(".activity-info");
-            const activityImage = document.querySelector(".activity-image");
-
-            if (spotify) {
-                activityInfo.style.display = 'block';
-                activityImage.src = spotify.album_art_url || ''; // Use album art image
-                activityImage.style.display = spotify.album_art_url ? 'block' : 'none'; // Hide if no image
-                activityInfo.innerHTML = `
-                    <p>Listening to ${spotify.song} by ${spotify.artist}</p>
-                `;
-            } else if (activities && activities.length > 0) {
-                const game = activities.find(activity => activity.type === 0); // Game activity
-                if (game) {
-                    activityInfo.style.display = 'block';
-                    activityImage.src = game.assets.large_image || ''; // Use game image
-                    activityImage.style.display = game.assets.large_image ? 'block' : 'none'; // Hide if no image
-                    activityInfo.innerHTML = `
-                        <p>Playing ${game.name}</p>
-                    `;
-                } else {
-                    activityInfo.style.display = 'none'; // Hide activity info if no game or Spotify
-                }
-            } else {
-                activityInfo.style.display = 'none'; // Hide activity info if no activity
-            }
-        } else {
-            console.error("Failed to fetch Discord status.");
-        }
+      const response = await fetch(`https://api.lanyard.rest/v1/users/${DISCORD_ID}`);
+      const data = await response.json();
+      updateBio(data.data);
     } catch (error) {
-        console.error("Error fetching Discord status:", error);
+      console.error('Error fetching Discord data:', error);
     }
+  }
+  
+ 
+  function updateBio(data) {
+    const avatar = document.getElementById('discord-avatar');
+    const username = document.getElementById('discord-username');
+    const status = document.getElementById('discord-status');
+  
+    avatar.src = `https://cdn.discordapp.com/avatars/${DISCORD_ID}/${data.discord_user.avatar}.png`;
+    username.textContent = data.discord_user.username;
+  
+    let statusText = `Status: ${data.discord_status}`;
+    if (data.activities && data.activities.length > 0) {
+      const activity = data.activities.find(a => a.type === 0); 
+      if (activity) {
+        statusText += ` - Playing ${activity.name}`;
+      }
+    }
+    if (data.listening_to_spotify) {
+      statusText += ` - Listening to ${data.spotify.song} by ${data.spotify.artist} on Spotify`;
+    }
+  
+    status.textContent = statusText;
+  }
+  
+
+
+const titleElement = document.title;
+const titleText = 'slidex';
+let index = 0;
+
+function typeWriter() {
+  if (index <= titleText.length) {
+    document.title = titleElement + titleText.substring(0, index);
+    index++;
+    setTimeout(typeWriter, 150); 
+  } else {
+    setTimeout(reverseTypeWriter, 2000); 
+  }
 }
 
-// Function to map Discord status to color
-function getStatusColor(status) {
-    switch (status) {
-        case 'online': return 'green';
-        case 'dnd': return 'red';
-        case 'idle': return 'yellow';
-        case 'offline': return 'gray';
-        default: return 'gray';
-    }
+function reverseTypeWriter() {
+  if (index >= 0) {
+    document.title = titleElement + titleText.substring(0, index);
+    index--;
+    setTimeout(reverseTypeWriter, 150); 
+  } else {
+    setTimeout(typeWriter, 2); 
+  }
 }
+document.addEventListener("DOMContentLoaded", function () {
+    const enterButton = document.getElementById("enter-button");
+    const welcomeScreen = document.getElementById("welcome-screen");
+    const content = document.getElementById("content");
+    const video = document.getElementById("background-video");
 
-fetchDiscordStatus();
+    const videos = ["vid1.mp4", "vid2.mp4"];
+    const videoSource = videos[Math.floor(Math.random() * videos.length)];
+    video.src = videoSource;
+
+    enterButton.addEventListener("click", function () {
+        welcomeScreen.style.opacity = "0";
+        setTimeout(() => {
+            welcomeScreen.style.display = "none";
+            content.classList.remove("hidden");
+            video.muted = false;
+            video.play();
+        }, 500);
+    });
+});
+
+document.addEventListener("mousemove", function (event) {
+    const snowflake = document.createElement("div");
+    snowflake.classList.add("snowflake");
+    document.body.appendChild(snowflake);
+
+    snowflake.style.left = `${event.clientX}px`;
+    snowflake.style.top = `${event.clientY}px`;
+
+    const animationDuration = Math.random() * 2 + 2; 
+    const translateX = Math.random() * 200 - 100; 
+    const scale = Math.random() * 0.5 + 0.5; 
+
+    snowflake.style.animation = `fall ${animationDuration}s linear`;
+    snowflake.style.transform = `translateX(${translateX}px) scale(${scale})`;
+
+    setTimeout(() => {
+        snowflake.remove();
+    }, animationDuration * 1000);
+});
+
+typeWriter();
+fetchDiscordData();
+
