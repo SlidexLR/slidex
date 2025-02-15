@@ -13,11 +13,9 @@ async function fetchDiscordData() {
  
   function updateBio(data) {
     const avatar = document.getElementById('discord-avatar');
-    const username = document.getElementById('discord-username');
     const status = document.getElementById('discord-status');
   
     avatar.src = `https://cdn.discordapp.com/avatars/${DISCORD_ID}/${data.discord_user.avatar}.png`;
-    username.textContent = data.discord_user.username;
   
     let statusText = `Status: ${data.discord_status}`;
     if (data.activities && data.activities.length > 0) {
