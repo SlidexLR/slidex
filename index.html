@@ -8,12 +8,10 @@
 </head>
 <body>
 
-
   <div id="welcome-screen">
     <button id="enter-button">click me please!1!!!!1!!!!!!11!</button>
   </div>
 
- 
   <div id="content" class="hidden">
     <video autoplay loop id="background-video">
       <source src="vid2.mp4" type="video/mp4">
@@ -21,12 +19,20 @@
     <div id="bio">
       <img id="discord-avatar" src="" alt="Discord Avatar" width="100" height="100">
       <h1 id="discord-username">slidex🤯</h1>
-      <p id="discord-status"></p>
-      <p id="text">hi </p>
+
+      <div id="status-container">
+        <span id="status-circle"></span>
+        <p id="discord-status"></p>
+      </div>
+
+      <p id="discord-custom-status"></p>
+
+      <p id="text">hi</p>
       <p>links below</p>
+
       <div id="links">
         <a href="https://steamcommunity.com/id/slidexo/">
-          <img src="https://cdn.discordapp.com/attachments/1332055890374688901/1340281200023179314/steam-white-circle-icon-hd-png-701751694966021ie3kndkzkm-removebg-preview.png?ex=67b1c9a3&is=67b07823&hm=4d719029c20c5dc89d46b902b0d09d2ea924e767efd4ad2363c5e4f4f32cea4a&" alt="Steam">
+          <img src="steam-white-circle-icon-hd-png-701751694966021ie3kndkzkm-removebg-preview.png" alt="Steam">
         </a>
         <a href="https://www.instagram.com/slidexo/">
           <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/instagram-white-icon.png" alt="Instagram">
@@ -35,9 +41,14 @@
           <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/spotify-white-icon.png" alt="Spotify">
         </a>
         <a href="https://www.last.fm/user/slidexlr">
-          <img src="https://uxwing.com/last-fm-white-icon/" alt="Last.fm">
+          <img src="last-fm-white-icon.png" alt="Last.fm">
         </a>
       </div>
+
+      <div id="spotify-container" class="hidden">
+        <a id="spotify-link" href="#" target="_blank"></a>
+      </div>
+
     </div>
   </div>
 
