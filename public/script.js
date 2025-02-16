@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const content = document.getElementById("content");
   const video = document.getElementById("background-video");
 
-  const videos = ["vid1.mp4", "vid2.mp4", "vid3.mp4"];
+  const videos = ["vid1.mp4", "vid2.mp4", "vid3.mp4","vid4.mp4"];
   const videoSource = videos[Math.floor(Math.random() * videos.length)];
   video.src = videoSource;
 
