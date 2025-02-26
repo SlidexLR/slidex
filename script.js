@@ -25,9 +25,9 @@ function updateDiscordData(data) {
   if (data.activities.length > 0) {
     const customStatus = data.activities.find(act => act.type === 4);
     document.getElementById("discord-custom-status").textContent =
-      customStatus ? customStatus.state : "No custom status";
+      customStatus ? customStatus.state : "";
   } else {
-    document.getElementById("discord-custom-status").textContent = "No custom status";
+    document.getElementById("discord-custom-status").textContent = "";
   }
 
   if (data.spotify) {
@@ -103,77 +103,8 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-document.addEventListener("mousemove", function (event) {
-  const snowflake = document.createElement("div");
-  snowflake.classList.add("snowflake");
-  document.body.appendChild(snowflake);
 
-  snowflake.style.left = `${event.clientX}px`;
-  snowflake.style.top = `${event.clientY}px`;
 
-  const animationDuration = Math.random() * 2 + 2;
-  const translateX = Math.random() * 200 - 100;
-  const scale = Math.random() * 0.5 + 0.5;
-
-  snowflake.style.animation = `fall ${animationDuration}s linear`;
-  snowflake.style.transform = `translateX(${translateX}px) scale(${scale})`;
-
-  setTimeout(() => {
-    snowflake.remove();
-  }, animationDuration * 1000);
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-  const noteForm = document.getElementById('note-form');
-  const noteInput = document.getElementById('note-input');
-  const notesList = document.getElementById('notes-list');
-
-  if (noteForm && noteInput && notesList) {
-    function renderNote(note) {
-      const li = document.createElement('li');
-      li.textContent = note.text;
-      notesList.appendChild(li);
-    }
-
-    async function loadNotes() {
-      try {
-        const response = await fetch('/api/notes');
-        if (response.ok) {
-          const notes = await response.json();
-          notesList.innerHTML = ''; 
-          notes.forEach(renderNote);
-        } else {
-          console.error('Failed to fetch notes:', response.statusText);
-        }
-      } catch (error) {
-        console.error('Error fetching notes:', error);
-      }
-    }
-
-    noteForm.addEventListener('submit', async (event) => {
-      event.preventDefault();
-      const noteText = noteInput.value.trim();
-      if (!noteText) return;
-
-      try {
-        const response = await fetch('/api/notes', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ text: noteText })
-        });
-        if (response.ok) {
-          const newNote = await response.json();
-          renderNote(newNote);
-          noteInput.value = '';
-        } else {
-          console.error('Failed to post note:', response.statusText);
-        }
-      } catch (error) {
-        console.error('Error posting note:', error);
-      }
-    });
-
-    loadNotes();
   }
 });
 
