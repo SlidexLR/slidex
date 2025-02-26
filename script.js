@@ -1,5 +1,4 @@
 const DISCORD_ID = '1192801918272155709';
-
 const socket = new WebSocket("wss://api.lanyard.rest/socket");
 
 socket.addEventListener("open", () => {
@@ -88,25 +87,26 @@ document.addEventListener("DOMContentLoaded", function () {
   const content = document.getElementById("content");
   const video = document.getElementById("background-video");
 
+  if (!enterButton || !welcomeScreen || !content || !video) {
+    console.error("One or more elements not found in the DOM.");
+    return;
+  }
+
   const videos = ["vid1.mp4", "vid2.mp4", "vid3.mp4"];
   const videoSource = videos[Math.floor(Math.random() * videos.length)];
-  video.src = videoSource;
+  video.querySelector("source").src = videoSource;
+  video.load();
 
   enterButton.addEventListener("click", function () {
     welcomeScreen.style.opacity = "0";
     setTimeout(() => {
       welcomeScreen.style.display = "none";
       content.classList.remove("hidden");
+
       video.muted = false;
       video.play();
     }, 500);
   });
 });
 
-
-
-  }
-});
-
 typeWriter();
-
