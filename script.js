@@ -80,6 +80,22 @@ function reverseTypeWriter() {
     setTimeout(typeWriter, 2000);
   }
 }
+const bio = document.getElementById("bio");
+
+bio.addEventListener("mousemove", (e) => {
+    const { left, top, width, height } = bio.getBoundingClientRect();
+    const x = e.clientX - (left + width / 2);
+    const y = e.clientY - (top + height / 2);
+
+    const rotateX = (y / height) * -30; 
+    const rotateY = (x / width) * 30;
+
+    bio.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+});
+
+bio.addEventListener("mouseleave", () => {
+    bio.style.transform = "perspective(1000px) rotateX(0deg) rotateY(0deg)";
+});
 
 document.addEventListener("DOMContentLoaded", function () {
   const enterButton = document.getElementById("enter-button");
