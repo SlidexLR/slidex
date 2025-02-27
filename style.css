@@ -69,7 +69,10 @@ body {
   position: relative;
   text-align: center;
   z-index: 1;
+  transform-style: preserve-3d;
+  transition: transform 0.1s ease-out;
 }
+
 #bio::before {
   content: "";
   position: absolute;
@@ -80,11 +83,12 @@ body {
   border: 2px solid rgb(89, 89, 89);
   border-radius: 20px;
   pointer-events: none;
-  backdrop-filter: blur(2.5px); 
+  backdrop-filter: blur(2.5px);
   -webkit-backdrop-filter: blur(2.5px);
-  background: rgba(0, 0, 0, 0.3); 
-  z-index: -1; 
+  background: rgba(0, 0, 0, 0.3);
+  z-index: -1;
 }
+
 
 
 #overlay {
@@ -187,6 +191,7 @@ button {
   color: rgb(0, 0, 0);
   font-size: 16px;
 }
+
 
 button:hover {
   transform: scale(1.1);
