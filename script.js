@@ -80,22 +80,23 @@ function reverseTypeWriter() {
     setTimeout(typeWriter, 2000);
   }
 }
-const bio = document.getElementById("bio");
+const bioContainer = document.getElementById("bio-container");
 
-bio.addEventListener("mousemove", (e) => {
-    const { left, top, width, height } = bio.getBoundingClientRect();
+bioContainer.addEventListener("mousemove", (e) => {
+    const { left, top, width, height } = bioContainer.getBoundingClientRect();
     const x = e.clientX - (left + width / 2);
     const y = e.clientY - (top + height / 2);
 
-    const rotateX = (y / height) * -30; 
+    const rotateX = (y / height) * -30;
     const rotateY = (x / width) * 30;
 
-    bio.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    bioContainer.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
 });
 
-bio.addEventListener("mouseleave", () => {
-    bio.style.transform = "perspective(1000px) rotateX(0deg) rotateY(0deg)";
+bioContainer.addEventListener("mouseleave", () => {
+    bioContainer.style.transform = "perspective(1000px) rotateX(0deg) rotateY(0deg)";
 });
+
 
 document.addEventListener("DOMContentLoaded", function () {
   const enterButton = document.getElementById("enter-button");
