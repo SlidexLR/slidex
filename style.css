@@ -1,13 +1,16 @@
-@font-face {
-  font-family: 'JMH Typewriter-Thin';
-  src: url('JMH\ Typewriter-Thin.ttf');
-}
+    @font-face {
+    font-family: 'Chillax Semibold';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Chillax Semibold'), url('Chillax-Semibold.woff') format('woff');
+    }
+    
 
 body {
   margin: 0;
   overflow: hidden;
   color: white;
-  font-family: 'JMH Typewriter-Thin', sans-serif;
+  font-family: 'Chillax Semibold', sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
