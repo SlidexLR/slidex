@@ -44,17 +44,17 @@ body {
   color: black;
   font-size: 1.5em;
   padding: 20px 40px;
-  border: none;
-  cursor: pointer;
+    background: none;
+    border: none;
+    outline: none;
+    padding: 0;
+    cursor: pointer;
   border-radius: 10px;
   transition: transform 0.3s ease, background 0.3s;
+
 }
 
-#enter-button:hover {
-  transform: scale(1.1);
-  background: #7289da;
-  color: white;
-}
+
 
 .hidden {
   display: none;
