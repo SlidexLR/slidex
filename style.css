@@ -39,7 +39,8 @@ body {
 }
 
 #enter-button {
-  background: white;
+  height: 1000vh;  
+  width: 1000vh;
   color: black;
   font-size: 1.5em;
   padding: 20px 40px;
@@ -74,8 +75,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50vh;
-  width: 30vh;
+  height: 70vh;
+  width: 50vh;
   transform-style: preserve-3d;
   transition: transform 0.1s ease-out;
 }
