@@ -75,7 +75,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  width: 100vh;
+  width: 80vh;
   transform-style: preserve-3d;
   transition: transform 0.1s ease-out;
 }
