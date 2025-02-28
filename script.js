@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
     return;
   }
 
-  const videos = ["vid1.mp4", "vid2.mp4", "vid3.mp4"];
+  const videos = ["vid1.mp4", "vid2.mp4", "vid3.mp4","vid4.mp4","vid5.mp4","vid6.mp4","vid7.mp4","vid8.mp4"];
   const videoSource = videos[Math.floor(Math.random() * videos.length)];
   video.querySelector("source").src = videoSource;
   video.load();
