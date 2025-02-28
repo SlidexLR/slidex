@@ -74,8 +74,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  width: 80vh;
+  height: 50vh;
+  width: 30vh;
   transform-style: preserve-3d;
   transition: transform 0.1s ease-out;
 }
