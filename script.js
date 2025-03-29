@@ -1,38 +1,39 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const enterButton = document.getElementById("enter-button");
-    const welcomeScreen = document.getElementById("welcome-screen");
-    const content = document.getElementById("content");
-    const video = document.getElementById("background-video");
-    const videos = ["vid1.mp4", "vid2.mp4", "vid3.mp4", "vid4.mp4", "vid5.mp4", "vid6.mp4", "vid7.mp4", "vid8.mp4", "vid9.mp4"];
+   
 
-    if (enterButton && welcomeScreen && content && video) {
-        const videoSource = videos[Math.floor(Math.random() * videos.length)];
-        video.querySelector("source").src = videoSource;
-        video.load();
 
-        enterButton.addEventListener("click", function () {
-            welcomeScreen.style.opacity = "0";
-            setTimeout(() => {
-                welcomeScreen.style.display = "none";
-                content.classList.remove("hidden");
-                video.muted = false;
-                video.play();
-            }, 500);
-        });
-    }
-
-    const text = "web dev";
-    const speed = 100;
-    let welcomeIndex = 0;
-
-    function welcomeTypeWriter() {
-        if (welcomeIndex < text.length) {
-            document.getElementById("typewriter-text").innerHTML += text.charAt(welcomeIndex);
-            welcomeIndex++;
-            setTimeout(welcomeTypeWriter, speed);
+    document.addEventListener("DOMContentLoaded", function () {
+        const video = document.getElementById("background-video");
+        const videos = ["vid1.mp4", "vid2.mp4", "vid3.mp4", "vid4.mp4", "vid5.mp4", "vid6.mp4", "vid7.mp4", "vid8.mp4", "vid9.mp4"];
+    
+    
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
         }
-    }
-    welcomeTypeWriter();
+    
+      
+        shuffleArray(videos);
+    
+        if (video) {
+            const videoSource = videos[0]; 
+            video.querySelector("source")?.remove(); 
+            const sourceElement = document.createElement("source");
+            sourceElement.src = videoSource;
+            sourceElement.type = "video/mp4";
+            video.appendChild(sourceElement);
+            video.load();
+    
+            
+            video.play().catch(error => {
+                console.error("Video playback failed:", error);
+               
+            });
+        }
+    });
+    
 
     document.querySelectorAll('.pill-container').forEach(container => {
         container.addEventListener('mousemove', (e) => {
