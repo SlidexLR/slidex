@@ -12,11 +12,9 @@
   <meta name="og:image" content="https://cdn.discordapp.com/attachments/1338705997987840132/1340462304403128340/togif.gif">
 </head>
 <body>
-    
-    <div id="main-container">
-        <video id="background-video" width="100%" height="auto", autoplay>
-            
-        </video>
+    <div id="entry" style="width: 100vw; height: 100vh; display: block; cursor: pointer; background-color: black;">click me</div>
+    <div id="main-container" style="display: none;">
+       
       <div id="left-column">
         <div class="pill-container" id="bio-container">
           <img id="discord-avatar" src="" alt="Discord Avatar" width="120" height="120">
@@ -48,6 +46,22 @@
         <div class="pill-container" id="spotify-container" class="hidden">
           <p>what I'm listening to rn ↓↓↓↓</p>
           <a id="spotify-link" href="#" target="_blank"></a>
+          
+          <video id="background-video" width="100%" height="auto" loop>
+              <source src="vid1.mp4" type="video/mp4">
+            
+             
+          </video>
+
+          <script>
+            document.getElementById('play-button').addEventListener('click', function() {
+                const video = document.getElementById('background-video');
+                video.muted = false; 
+                video.play().catch(error => {
+                    console.error('Error attempting to play the video:', error);
+                });
+            });
+        </script>
         </div>
       </div>
     </div>

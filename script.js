@@ -1,6 +1,15 @@
 document.addEventListener("DOMContentLoaded", function () {
    
+    document.getElementById("entry").addEventListener("click", function () {
+        document.getElementById("main-container").style.display = "flex";
+        document.getElementById("entry").classList.add("fade-out");
+        setTimeout(function () {
+            document.getElementById("entry").style.display = "none";
+        }, 500);
+        
 
+    });
+    
 
     document.addEventListener("DOMContentLoaded", function () {
         const video = document.getElementById("background-video");
