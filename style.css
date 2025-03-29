@@ -1,178 +1,156 @@
-    @font-face {
+@font-face {
     font-family: 'Chillax Semibold';
     font-style: normal;
     font-weight: normal;
     src: local('Chillax Semibold'), url('Chillax-Semibold.woff') format('woff');
     }
     
+    body {
+        margin: 0;
+        overflow: hidden;
+        color: white;
+        font-family: 'Chillax Semibold', sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #1e1e2f;
+      }
+      
+  
+  
+  #content {
+    display: none;
+    width: 90%;
+    max-width: 1200px;
+  }
+  
+  #content.visible {
+    display: block;
+  }
+  
+ 
+  #main-container {
+    display: flex;
+    gap: 20px;
+  }
+  
 
-body {
-  margin: 0;
-  overflow: hidden;
-  color: white;
-  font-family: 'Chillax Semibold', sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #1e1e2f;
-}
+  #left-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  
 
-* {
-  box-sizing: border-box;
-  font-family: 'Chillax Semibold', sans-serif;
-  cursor: url(https://r2.guns.lol/aafdea0f-3852-46a5-aafb-76ea4b99b8a0.png) 16 16, auto !important;
-}
+  #right-column {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
 
-#welcome-screen {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.9);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-  transition: opacity 0.5s ease-in-out;
-}
+  .pill-container {
+    padding: 20px;
+    background: linear-gradient(145deg, #ffffff, #e6e6e6);
+    border-radius: 50px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transform-style: preserve-3d;
+    text-align: center;
+  }
+  
 
-#enter-button {
-  height: 1000vh;  
-  width: 1000vh;
-  color: black;
-  font-size: 1.5em;
-  padding: 20px 40px;
-    background: none;
-    border: none;
-    outline: none;
-    padding: 0;
-    cursor: pointer;
-  border-radius: 10px;
-  transition: transform 0.3s ease, background 0.3s;
-    color: white;
+  .pill-container:hover {
+    box-shadow: 0 15px 25px rgba(0,0,0,0.3);
+  }
+  
 
-}
+  #status-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  #status-circle {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
 
-
-
-.hidden {
-  display: none;
-}
-
-#background-video {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -2;
-}
+  #links img {
+    width: 40px;
+    margin: 0 10px;
+    transition: transform 0.3s ease;
+  }
+  
+  #links a:hover img {
+    transform: scale(1.1);
+  }
 
 #bio-container {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 70vh;
-  width: 50vh;
-  transform-style: preserve-3d;
-  transition: transform 0.1s ease-out;
-}
-
-#bio {
-  position: relative;
-  text-align: center;
-  z-index: 1;
-  transform-style: preserve-3d;
-}
-
-#bio-container::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border-radius: 20px;
-  border: 2px solid rgb(89, 89, 89);
-  z-index: -1;
-  transition: transform 0.1s ease-out;
-}
-
-#links {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-top: 20px;
-}
-
-#links a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 50px;
-  height: 50px;
-  transition: transform 0.3s ease-in-out;
-}
-
-#links img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-#links a:hover {
-  transform: scale(1.2);
-}
-
-.snowflake {
-  position: fixed;
-  width: 10px;
-  height: 10px;
-  background: white;
-  border-radius: 50%;
-  opacity: 0.8;
-  pointer-events: none;
-  animation: fall 3s linear;
-}
-
-@keyframes fall {
-  0% {
-    opacity: 1;
-    transform: translateY(0);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
   }
-  100% {
-    opacity: 0;
-    transform: translateY(100px);
+  
+
+  #discord-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 10px;
   }
-}
+  
+  /* Username */
+  #discord-username {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
 
-.spotify_container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 40px;
-}
-
-textarea {
-  width: 150%;
-  height: 150px;
-  padding: 10px;
-  font-size: 16px;
-  border: none;
-  background: transparent;
-  color: white;
-  outline: none;
-}
-
-button {
-  background: none;
-  border: none;
-  color: rgb(0, 0, 0);
-  font-size: 16px;
-}
-
-button:hover {
-  transform: scale(1.1);
-}
+  #discord-custom-status {
+    font-size: 16px;
+    color: #555;
+    margin-top: 10px;
+  }
+  
+  #custom-status {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    margin-top: 10px;
+    background: linear-gradient(145deg, #ffffff, #e6e6e6);
+    border-radius: 50px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  #custom-status:hover {
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+  }
+  
+  .status-text {
+    font-size: 14px;
+    color: #333;
+  }
+  
+  #custom-status {
+    perspective: 1000px;
+  }
+  
+  #custom-status:hover {
+    transform: rotateX(10deg) rotateY(10deg);
+  }
+  

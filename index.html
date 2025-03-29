@@ -3,75 +3,59 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>@</title>
+  <title>@s</title>
   <link rel="stylesheet" href="style.css">
   <meta name="description" content="bio page!?!?">
   <meta name="author" content="@slidex 🤯">
   <meta name="og:title" content="@slidex 🤯">
   <meta name="og:description" content="bio page!?!?">
-  <meta name="og:image" content="https://cdn.discordapp.com/attachments/1338705997987840132/1340462304403128340/togif.gif?ex=67b2724d&is=67b120cd&hm=fab591e59bad4eb3832117b1fdad59b7c86e84465f8f8def8cfb1bc782a04d0d&">
+  <meta name="og:image" content="https://cdn.discordapp.com/attachments/1338705997987840132/1340462304403128340/togif.gif">
 </head>
 <body>
-
-  <div id="welcome-screen">
-    <button id="enter-button">click me please!1!!!!1!!!!!!11!</button>
-  </div>
-
-  <div id="content" class="hidden">
-    <video autoplay loop id="background-video">
-      <source src="" type="video/mp4">
-    </video>
-    <div id="bio-container">
-    <div id="bio">
-      <img id="discord-avatar" src="" alt="Discord Avatar" width="100" height="100">
-      <h1 id="discord-username">slidex🤯</h1>
-
-      <div id="status-container">
-        <span id="status-circle"></span>
-        <p id="discord-status"></p>
-      </div>
-
-      <p id="discord-custom-status"></p>
-      <p>        </p>
-      <p id="text">hi! im a web dev</p>
     
-      
-      <p>links below</p>
-
-<div id="links">
-  <a href="https://steamcommunity.com/id/slidexo/">
-    <img src="steam-white-circle-icon-hd-png-701751694966021ie3kndkzkm-removebg-preview.png" alt="Steam">
-  </a>
-  <a href="https://www.instagram.com/ybgslidex/">
-    <img src="ig.jpg" alt="Instagram"> 
-  </a>
-  <a href="https://open.spotify.com/user/31m5c6jpi42f23xqzjcwjioy7uvu">
-    <img src="spotify.png" alt="Spotify"> 
-  </a>
-  <a href="https://www.last.fm/user/slidexlr">
-    <img src="last-fm-white-icon.png" alt="Last.fm">
-  </a>
-</div>
-<p>what im listening to rn ↓↓↓↓</p>
-<div id="spotify-container" class="hidden">
-  <a id="spotify-link" href="#" target="_blank"></a>
-</div>
-
-
-      <div id="spotify-container" class="hidden">
-        <a id="spotify-link" href="#" target="_blank"></a>
+    <div id="main-container">
+     
+      <div id="left-column">
+        <div class="pill-container" id="bio-container">
+          <img id="discord-avatar" src="" alt="Discord Avatar" width="120" height="120">
+          <h1 id="discord-username">slidex🤯</h1>
+          <p id="discord-custom-status"></p>
+          <p id="typewriter-text"></p>
+        </div>
       </div>
-
+  
+      
+      <div id="right-column">
+        <div class="pill-container" id="status-container">
+          <div id="status-content">
+            <span id="status-circle"></span>
+            <p id="discord-status"></p>
+          </div>
+        </div>
+  
+        <div class="pill-container" id="links-container">
+          <p>links below</p>
+          <div id="links">
+            <a href="https://steamcommunity.com/id/slidexo/"><img src="steam.png" alt="Steam"></a>
+            <a href="https://www.instagram.com/ybgslidex/"><img src="ig.jpg" alt="Instagram"></a>
+            <a href="https://open.spotify.com/user/31m5c6jpi42f23xqzjcwjioy7uvu"><img src="spotify.png" alt="Spotify"></a>
+            <a href="https://www.last.fm/user/slidexlr"><img src="lastfm.png" alt="Last.fm"></a>
+          </div>
+        </div>
+  
+        <div class="pill-container" id="spotify-container" class="hidden">
+          <p>what I'm listening to rn ↓↓↓↓</p>
+          <a id="spotify-link" href="#" target="_blank"></a>
+        </div>
+      </div>
     </div>
-  </div>
   </div>
 
   <script src="script.js"></script>
   <script src="https://unpkg.com/cursor-effects@latest/dist/browser.js"></script>
   <script type="module">
-  import { fairyDustCursor } from "https://unpkg.com/cursor-effects@latest/dist/esm.js";
-
-  new fairyDustCursor();
-</script>
+    import { fairyDustCursor } from "https://unpkg.com/cursor-effects@latest/dist/esm.js";
+    new fairyDustCursor();
+  </script>
 </body>
 </html>
