@@ -1,170 +1,167 @@
 @font-face {
-    font-family: 'Chillax Semibold';
-    font-style: normal;
-    font-weight: normal;
-    src: local('Chillax Semibold'), url('Chillax-Semibold.woff') format('woff');
-    }
-    
-    body {
-        margin: 0;
-        overflow: hidden;
-        color: rgb(0, 0, 0);
-        font-family: 'Chillax Semibold', sans-serif;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        background-color: #333;
-      }
-      
-  
-  
-  #content {
-    display: none;
-    width: 90%;
-    max-width: 1200px;
-  }
-  
-  #content.visible {
-    display: block;
-  }
-  
- 
-  #main-container {
-    display: flex;
-    gap: 20px;
-  }
-  
+  font-family: 'Chillax Semibold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Chillax Semibold'), url('Chillax-Semibold.woff') format('woff');
+}
 
-  #left-column {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-  }
-  
+body {
+  margin: 0;
+  overflow: hidden;
+  color: rgb(0, 0, 0);
+  font-family: 'Chillax Semibold', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #333;
+}
 
-  #right-column {
-    flex: 2;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
+#content {
+  display: none;
+  width: 90%;
+  max-width: 1200px;
+}
 
-  .pill-container {
-    padding: 20px;
-    background: linear-gradient(145deg, #ffffff, #e6e6e6);
-    border-radius: 50px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    transform-style: preserve-3d;
-    text-align: center;
-  }
-  
+#content.visible {
+  display: block;
+}
 
-  .pill-container:hover {
-    box-shadow: 0 15px 25px rgba(0,0,0,0.3);
-  }
-  
+#main-container {
+  display: flex;
+  gap: 20px;
+}
 
-  #status-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  #status-circle {
-    display: inline-block;
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    margin-right: 10px;
-  }
-  
+#left-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
 
-  #links img {
-    width: 40px;
-    margin: 0 10px;
-    transition: transform 0.3s ease;
-  }
-  
-  #links a:hover img {
-    transform: scale(1.1);
-  }
+#right-column {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.pill-container {
+  padding: 20px;
+  background: linear-gradient(145deg, #ffffff, #e6e6e6);
+  border-radius: 50px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform-style: preserve-3d;
+  text-align: center;
+}
+
+.pill-container:hover {
+  box-shadow: 0 15px 25px rgba(0,0,0,0.3);
+}
+
+#status-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#status-circle {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+#links img {
+  width: 40px;
+  margin: 0 10px;
+  transition: transform 0.3s ease;
+}
+
+#links a:hover img {
+  transform: scale(1.1);
+}
 
 #bio-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 20px;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
 
-  #discord-avatar {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    margin-bottom: 10px;
-  }
-  
+#discord-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
 
-  #discord-username {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-  
+#discord-username {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
 
-  #discord-custom-status {
-    font-size: 16px;
-    color: #555;
-    margin-top: 10px;
-  }
-  
-  #custom-status {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 20px;
-    margin-top: 10px;
-    background: linear-gradient(145deg, #ffffff, #e6e6e6);
-    border-radius: 50px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    transform-style: preserve-3d;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  #custom-status:hover {
-    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
-  }
-  
-  .status-text {
-    font-size: 14px;
-    color: #333;
-  }
-  
-  #custom-status {
-    perspective: 1000px;
-  }
-  
-  #custom-status:hover {
-    transform: rotateX(10deg) rotateY(10deg);
-  }
-  
-  
-  .hidden {
-    display: none;
-  }
+#discord-custom-status {
+  font-size: 16px;
+  color: #555;
+  margin-top: 10px;
+}
 
-  
-  @keyframes fade-out {
-    from {
+#custom-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  margin-top: 10px;
+  background: linear-gradient(145deg, #ffffff, #e6e6e6);
+  border-radius: 50px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#custom-status:hover {
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+}
+
+.status-text {
+  font-size: 14px;
+  color: #333;
+}
+
+#custom-status {
+  perspective: 1000px;
+}
+
+#custom-status:hover {
+  transform: rotateX(10deg) rotateY(10deg);
+}
+
+.hidden {
+  display: none;
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+  to {
       opacity: 1;
-    }
-    to {
-      opacity: 0;
-    }
   }
+}
+
+@keyframes fade-out {
+  from {
+      opacity: 1;
+  }
+  to {
+      opacity: 0;
+  }
+}
