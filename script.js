@@ -11,23 +11,12 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     
 
-    document.addEventListener("DOMContentLoaded", function () {
+        document.addEventListener("DOMContentLoaded", function () {
         const video = document.getElementById("background-video");
         const videos = ["vid1.mp4", "vid2.mp4", "vid3.mp4", "vid4.mp4", "vid5.mp4", "vid6.mp4", "vid7.mp4", "vid8.mp4", "vid9.mp4"];
     
-    
-        function shuffleArray(array) {
-            for (let i = array.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [array[i], array[j]] = [array[j], array[i]];
-            }
-        }
-    
-      
-      
-    
         if (video) {
-            const videoSource = videos[0]; 
+            const videoSource = videos[Math.floor(Math.random() * videos.length)];
             video.querySelector("source")?.remove(); 
             const sourceElement = document.createElement("source");
             sourceElement.src = videoSource;
@@ -41,8 +30,6 @@ document.addEventListener("DOMContentLoaded", function () {
                
             });
         }
-    });
-    
 
     document.querySelectorAll('.pill-container').forEach(container => {
         container.addEventListener('mousemove', (e) => {
