@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     
       
-        shuffleArray(videos);
+        const videoSource = shuffleArray(videos)[0];
     
         if (video) {
             const videoSource = videos[0]; 
