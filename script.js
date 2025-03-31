@@ -1,35 +1,28 @@
 document.addEventListener("DOMContentLoaded", function () {
-   
+
     document.getElementById("entry").addEventListener("click", function () {
         document.getElementById("main-container").style.display = "flex";
         document.getElementById("entry").classList.add("fade-out");
         setTimeout(function () {
             document.getElementById("entry").style.display = "none";
         }, 500);
-        
-
     });
-    
 
-        document.addEventListener("DOMContentLoaded", function () {
-        const video = document.getElementById("background-video");
-        const videos = ["vid1.mp4", "vid2.mp4", "vid3.mp4", "vid4.mp4", "vid5.mp4", "vid6.mp4", "vid7.mp4", "vid8.mp4", "vid9.mp4"];
-    
-        if (video) {
-            const videoSource = videos[Math.floor(Math.random() * videos.length)];
-            video.querySelector("source")?.remove(); 
-            const sourceElement = document.createElement("source");
-            sourceElement.src = videoSource;
-            sourceElement.type = "video/mp4";
-            video.appendChild(sourceElement);
-            video.load();
-    
-            
-            video.play().catch(error => {
-                console.error("Video playback failed:", error);
-               
-            });
-        }
+    const video = document.getElementById("background-video");
+    const videos = ["vid1.mp4", "vid2.mp4", "vid3.mp4", "vid4.mp4", "vid5.mp4", "vid6.mp4", "vid7.mp4", "vid8.mp4", "vid9.mp4"];
+
+    if (video) {
+        const videoSource = videos[Math.floor(Math.random() * videos.length)];
+        video.querySelector("source")?.remove();
+        const sourceElement = document.createElement("source");
+        sourceElement.src = videoSource;
+        sourceElement.type = "video/mp4";
+        video.appendChild(sourceElement);
+        video.load();
+        video.play().catch(error => {
+            console.error("Video playback failed:", error);
+        });
+    }
 
     document.querySelectorAll('.pill-container').forEach(container => {
         container.addEventListener('mousemove', (e) => {
@@ -128,4 +121,5 @@ document.addEventListener("DOMContentLoaded", function () {
         };
         statusCircle.style.backgroundColor = colors[status] || "gray";
     }
+
 });
