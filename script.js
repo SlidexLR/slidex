@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-
     document.getElementById("entry").addEventListener("click", function () {
         document.getElementById("main-container").style.display = "flex";
         document.getElementById("entry").classList.add("fade-out");
@@ -121,5 +120,4 @@ document.addEventListener("DOMContentLoaded", function () {
         };
         statusCircle.style.backgroundColor = colors[status] || "gray";
     }
-
 });
