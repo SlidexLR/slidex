@@ -12,48 +12,38 @@
   <meta name="og:image" content="https://cdn.discordapp.com/attachments/1338705997987840132/1340462304403128340/togif.gif">
 </head>
 <body>
-    <div id="entry" style="width: 100vw; height: 100vh; display: block; cursor: pointer; background-color: black;">click me</div>
-    <div id="main-container" style="display: none;">
-       <video id="background-video" width="100%" height="auto" loop class="fade-in">
-              <source src="vid1.mp4" type="video/mp4">
-          </video>
-      <div id="left-column">
-        <div class="pill-container" id="bio-container">
-          <img id="discord-avatar" src="" alt="Discord Avatar" width="120" height="120">
-          <h1 id="discord-username">slidex🤯</h1>
-          <p id="discord-custom-status"></p>
-          <p id="typewriter-text"></p>
+  <div id="overlay">
+    <span id="overlay-text">click</span>
+  </div>
+  <div id="main-container">
+    <video id="background-video" width="100%" height="auto" loop class="fade-in">
+      <source src="vid1.mp4" type="video/mp4">
+    </video>
+    <div id="left-column">
+      <div class="pill-container" id="bio-container">
+        <img id="discord-avatar" src="" alt="Discord Avatar" width="120" height="120">
+        <h1 id="discord-username">slidex🤯</h1>
+        <p id="discord-custom-status"></p>
+        <p id="typewriter-text"></p>
+      </div>
+    </div>
+    <div id="right-column">
+      <div class="pill-container" id="status-container">
+        <div id="status-content">
+          <span id="status-circle"></span>
+          <p id="discord-status"></p>
         </div>
       </div>
-  
-      <div id="right-column">
-        <div class="pill-container" id="status-container">
-          <div id="status-content">
-            <span id="status-circle"></span>
-            <p id="discord-status"></p>
-          </div>
-        </div>
-  
-        <div class="pill-container" id="links-container">
-          <p>links below</p>
-          <div id="links">
-            <a href="https://steamcommunity.com/id/slidexo/"><img src="steam.png" alt="Steam"></a>
-            <a href="https://www.instagram.com/ybgslidex/"><img src="ig.jpg" alt="Instagram"></a>
-            <a href="https://open.spotify.com/user/31m5c6jpi42f23xqzjcwjioy7uvu"><img src="spotify.png" alt="Spotify"></a>
-            <a href="https://www.last.fm/user/slidexlr"><img src="lastfm.png" alt="Last.fm"></a>
-          </div>
-        </div>
-  
-        <div class="pill-container" id="spotify-container" class="hidden">
-          <p>what I'm listening to rn ↓↓↓↓</p>
-          <a id="spotify-link" href="#" target="_blank"></a>
-          
-         
+      <div class="pill-container" id="links-container">
+        <div id="links">
+          <a href="https://steamcommunity.com/id/slidexo/"><img src="steam.png" alt="Steam"></a>
+          <a href="https://www.instagram.com/ybgslidex/"><img src="ig.jpg" alt="Instagram"></a>
+          <a href="https://open.spotify.com/user/31m5c6jpi42f23xqzjcwjioy7uvu"><img src="spotify.png" alt="Spotify"></a>
+          <a href="https://www.last.fm/user/slidexlr"><img src="lastfm.png" alt="Last.fm"></a>
         </div>
       </div>
     </div>
   </div>
-
   <script src="script.js"></script>
   <script src="https://unpkg.com/cursor-effects@latest/dist/browser.js"></script>
   <script type="module">
