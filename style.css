@@ -48,7 +48,7 @@ body {
 
 .pill-container {
   padding: 20px;
-  background: linear-gradient(145deg, #ffffff, #e6e6e6);
+  background: linear-gradient(145deg, #fff, #807777);
   border-radius: 50px;
   box-shadow: 0 10px 20px rgba(0,0,0,0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
